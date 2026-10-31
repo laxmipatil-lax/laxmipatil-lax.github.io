@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laxmi Patil | Full-Stack and AI Developer</title>
+<meta name="description" content="Portfolio of Laxmi Patil: full-stack developer, AI/ML builder and support-minded problem solver.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== CUSTOMIZE HERE: colors and fonts ===== */
+:root{
+  --bg:#F5F6F3; --surface:#FFFFFF; --ink:#12302F; --muted:#51615F;
+  --line:#D9DED9; --brand:#14595A; --brand-soft:#DCEBE8; --accent:#C98A2B;
+  --shadow:rgba(18,48,47,.14);
+  --font-display:'Newsreader',Georgia,serif;
+  --font-body:'Hanken Grotesk',system-ui,'Segoe UI',sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1B1B; --surface:#152726; --ink:#EAF1EE; --muted:#9DB2AE;
+  --line:#264240; --brand:#5FB5AE; --brand-soft:#1B3836; --accent:#E3A94C; --shadow:rgba(0,0,0,.45); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0E1B1B; --surface:#152726; --ink:#EAF1EE; --muted:#9DB2AE;
+  --line:#264240; --brand:#5FB5AE; --brand-soft:#1B3836; --accent:#E3A94C; --shadow:rgba(0,0,0,.45); color-scheme:dark;}
+/* ============================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--font-body);position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:60}
+/* grain + mesh */
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60rem 30rem at 85% -5%,color-mix(in srgb,var(--brand) 16%,transparent),transparent 70%),
+   radial-gradient(40rem 26rem at -5% 40%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%),
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;margin:0}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+section{padding:5.5rem 0}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:2.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--line),transparent)}
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:60px}
+.logo{font:600 1.3rem var(--font-display);text-decoration:none;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul a{display:block;padding:.45rem .8rem;border-radius:999px;text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500;white-space:nowrap;transition:background .2s,color .2s}
+nav ul a:hover,nav ul a.active{background:var(--brand-soft);color:var(--brand)}
+/* hero */
+#top{padding:6rem 0 5rem}
+.hero{display:grid;gap:3rem;grid-template-columns:1.25fr .75fr;align-items:center}
+.kicker{display:inline-block;padding:.3rem .8rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:.9rem;color:var(--muted);margin-bottom:1.4rem}
+h1{font-size:clamp(2.8rem,7vw,5rem);letter-spacing:-.02em}
+.role{font:500 clamp(1.2rem,2.6vw,1.6rem) var(--font-display);color:var(--brand);margin:.8rem 0 1.2rem}
+.tag{max-width:34rem;color:var(--muted);font-size:1.12rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:600;border:1.5px solid var(--brand);transition:transform .2s,box-shadow .2s,background .2s}
+.btn.primary{background:var(--brand);color:var(--surface)}
+.btn.ghost{color:var(--brand);background:transparent}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px var(--shadow)}
+.facts{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.5rem;display:grid;gap:1.1rem}
+.facts div{display:grid;gap:.1rem}
+.facts b{font:600 1.5rem var(--font-display);color:var(--ink)}
+.facts small{color:var(--muted);font-size:.92rem}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem}
+.langs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.6rem;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 34px var(--shadow);border-color:var(--brand)}
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.bar{margin-bottom:1.1rem}
+.bar .row{display:flex;justify-content:space-between;font-weight:500;font-size:.98rem;margin-bottom:.35rem}
+.bar .row span:last-child{color:var(--muted)}
+.track{height:9px;border-radius:9px;background:var(--brand-soft);overflow:hidden}
+.fill{height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.bar:hover .fill{filter:brightness(1.15)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{padding:.3rem .75rem;border-radius:6px;background:var(--brand-soft);color:var(--brand);font-size:.9rem;font-weight:500;transition:transform .2s,background .2s,color .2s}
+.chip:hover{transform:translateY(-2px);background:var(--brand);color:var(--surface)}
+.card h3{font-size:1.3rem;margin-bottom:1rem}
+/* timeline */
+.timeline{position:relative;display:grid;gap:2rem}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line);transform:translateX(-50%)}
+.t-item{position:relative;width:calc(50% - 2rem)}
+.t-item:nth-child(odd){justify-self:start}
+.t-item:nth-child(even){justify-self:end}
+.t-item::after{content:"";position:absolute;top:1.8rem;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.t-item:nth-child(odd)::after{right:-39px}
+.t-item:nth-child(even)::after{left:-39px}
+.when{font-size:.9rem;color:var(--brand);font-weight:600}
+.t-item h3{font-size:1.3rem;margin:.3rem 0 .15rem}
+.org{color:var(--muted);margin:0 0 .8rem;font-size:.97rem}
+.t-item ul,.edu ul{margin:0;padding-left:1.1rem}
+.t-item li,.edu li{margin-bottom:.4rem}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.projects .card{display:flex;flex-direction:column;gap:.8rem}
+.projects h3{margin:0;font-size:1.3rem}
+.projects p{margin:0;color:var(--muted);font-size:.99rem}
+.status{align-self:flex-start;font-size:.82rem;font-weight:600;padding:.15rem .6rem;border-radius:999px;background:var(--accent);color:#1d1503}
+.plink{margin-top:auto;font-weight:600;text-decoration:none}
+.plink:hover{text-decoration:underline}
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.edu h3{margin-bottom:.2rem}
+.edu .sub{color:var(--muted);margin:0 0 .8rem;font-size:.97rem}
+.certs{grid-column:1/-1}
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.contact a{display:block;text-decoration:none;color:var(--ink)}
+.contact small{display:block;color:var(--muted);font-size:.9rem}
+.contact b{font-weight:600;overflow-wrap:anywhere}
+footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem;text-align:center}
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;transition-delay:calc(var(--i,0)*110ms)}
+.reveal.scale{transform:scale(.94)}
+.t-item.reveal:nth-child(odd){transform:translateX(-50px)}
+.t-item.reveal:nth-child(even){transform:translateX(50px)}
+.reveal.in,.t-item.reveal.in:nth-child(n){opacity:1;transform:none}
+.hero>*{animation:rise .9s both}.hero>*:nth-child(2){animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+@media (max-width:820px){
+  .hero,.about,.skills,.edu{grid-template-columns:1fr}
+  .logo{font-size:1.1rem}
+  .timeline::before{left:7px}
+  .t-item,.t-item:nth-child(n){width:calc(100% - 2rem);justify-self:end}
+  .t-item:nth-child(n)::after{left:-31px;right:auto}
+  .t-item.reveal:not(.in):nth-child(n){transform:translateX(40px)}
+  section{padding:4rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal,.hero>*{opacity:1;transform:none;transition:none;animation:none}
+  .fill{transition:none}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">Laxmi Patil<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<section id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="kicker">Open to entry-level roles in Bengaluru and remote</span>
+      <h1>Laxmi Patil</h1>
+      <p class="role">Software Developer and AI/ML Engineer</p>
+      <p class="tag">I build full-stack applications and AI tools, and I’m the person who traces a problem down to its cause and explains it clearly.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="https://github.com/laxmipatil-lax" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/laxmi-patil-a3717a341" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=laxmipatil5825@gmail.com" target="_blank" rel="noopener">Email me</a>
+      </div>
+    </div>
+    <aside class="facts" aria-label="At a glance">
+      <div><b>Production code</b><small>GST reporting module in live medical billing software</small></div>
+      <div><b>4 projects</b><small>RAG chatbot, research agent, image classifier and more</small></div>
+      <div><b>MCA, final year</b><small>VTU, Belagavi</small></div>
+    </aside>
+  </div>
+</section>
+
+<section id="about"><div class="wrap">
+  <h2 class="reveal">About me</h2>
+  <div class="about">
+    <div class="reveal" style="--i:1">
+      <p>I’m a final-year MCA student from Belagavi, Karnataka. I like software that works for real people, which is why my internship on a medical billing product mattered to me: healthcare providers rely on it every day.</p>
+      <p>My strongest habit is breaking a problem apart. I read the code, follow the issue through the database and the interface, find where it starts, and write down what I found so the next person doesn’t have to guess.</p>
+    </div>
+    <div class="reveal" style="--i:2">
+      <p>Lately I’ve been building with generative AI: a document chatbot that runs fully on my own machine, and a research agent that checks its own answers. I enjoy making AI answers traceable to a source.</p>
+      <p>I’m looking for a first role in software development, AI/ML, or application support, where I can keep learning from a strong team.</p>
+      <div class="langs"><span class="chip">Kannada (native)</span><span class="chip">English (professional)</span><span class="chip">Hindi (conversational)</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2 class="reveal">Skills</h2>
+  <div class="skills">
+    <div class="card reveal" style="--i:1">
+      <h3>Core strengths</h3>
+      <div class="bar"><div class="row"><span>Python</span><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="bar"><div class="row"><span>Java and Spring Boot</span><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+      <div class="bar"><div class="row"><span>SQL (PostgreSQL, MySQL)</span><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+      <div class="bar"><div class="row"><span>REST APIs</span><span>78%</span></div><div class="track"><div class="fill" data-w="78"></div></div></div>
+      <div class="bar"><div class="row"><span>Debugging and root-cause analysis</span><span>82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+      <div class="bar"><div class="row"><span>Generative AI and RAG</span><span>75%</span></div><div class="track"><div class="fill" data-w="75"></div></div></div>
+    </div>
+    <div class="reveal" style="--i:2;display:grid;gap:1.5rem">
+      <div class="card"><h3>Languages and frameworks</h3><div class="chips">
+        <span class="chip">Python</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">C</span><span class="chip">SQL</span><span class="chip">React.js</span><span class="chip">Spring Boot</span><span class="chip">J2EE</span><span class="chip">Servlets and JSP</span><span class="chip">Flask</span><span class="chip">HTML and CSS</span></div></div>
+      <div class="card"><h3>AI and data</h3><div class="chips">
+        <span class="chip">RAG pipelines</span><span class="chip">ChromaDB</span><span class="chip">Ollama (Llama 3.2)</span><span class="chip">Gemini API</span><span class="chip">scikit-learn</span><span class="chip">TensorFlow and Keras</span><span class="chip">pandas and NumPy</span><span class="chip">Streamlit</span></div></div>
+      <div class="card"><h3>Tools and practice</h3><div class="chips">
+        <span class="chip">Git and GitHub</span><span class="chip">VS Code</span><span class="chip">Eclipse</span><span class="chip">PostgreSQL</span><span class="chip">SDLC</span><span class="chip">Agile and Scrum</span><span class="chip">Code reviews</span><span class="chip">Technical documentation</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2 class="reveal">Experience</h2>
+  <div class="timeline">
+    <article class="t-item card reveal">
+      <span class="when">May 2026</span>
+      <h3>Tata iQ GenAI Data Analytics Job Simulation</h3>
+      <p class="org">Forage, virtual experience</p>
+      <ul><li>Practical tasks in exploratory data analysis and risk profiling.</li><li>Predicted delinquency with AI and built an AI-driven collections strategy with a business report.</li></ul>
+    </article>
+    <article class="t-item card reveal">
+      <span class="when">May 2026</span>
+      <h3>Deloitte Technology Job Simulation</h3>
+      <p class="org">Forage, virtual experience</p>
+      <ul><li>Completed hands-on coding and development tasks set by Deloitte Australia’s technology team.</li></ul>
+    </article>
+    <article class="t-item card reveal">
+      <span class="when">Feb 2025 – Mar 2025</span>
+      <h3>Project Intern, Full Stack Development</h3>
+      <p class="org">Softmusk Info Pvt. Ltd., Belagavi (hybrid)</p>
+      <ul>
+        <li>Enhanced a GST reporting module in production medical billing software used by healthcare providers.</li>
+        <li>Built the PostgreSQL backend layer and Visual Basic interface components.</li>
+        <li>Investigated report issues across the database and UI layers.</li>
+        <li>Joined code reviews with senior developers and applied their feedback.</li>
+      </ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2 class="reveal">Projects</h2>
+  <div class="projects">
+    <article class="card reveal" style="--i:1"><h3>Document Q&amp;A RAG Chatbot</h3>
+      <p>A fully local retrieval-augmented pipeline. It chunks and embeds PDFs into ChromaDB, finds relevant passages by semantic search, and answers with citations from a locally hosted Llama 3.2.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">ChromaDB</span><span class="chip">Ollama</span><span class="chip">Streamlit</span></div>
+      <a class="plink" href="https://github.com/laxmipatil-lax/rag-chatbot" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card reveal" style="--i:2"><h3>Autonomous Research Literature Agent</h3>
+      <p>Splits a research question into targeted searches, pulls papers from arXiv, and writes cited answers with Gemini. A self-evaluation step triggers a bounded refinement loop.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Gemini API</span><span class="chip">arXiv API</span><span class="chip">Streamlit</span></div>
+      <a class="plink" href="https://github.com/laxmipatil-lax/research-literature-agent" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card reveal" style="--i:3"><span class="status">In progress</span><h3>Plant Disease Classifier</h3>
+      <p>Training an image classifier on about 35,000 PlantVillage images across 25 crop disease and healthy classes, with data augmentation and Grad-CAM to show what the model looks at.</p>
+      <div class="chips"><span class="chip">ResNet18</span><span class="chip">Transfer learning</span><span class="chip">Grad-CAM</span></div>
+      <a class="plink" href="https://github.com/laxmipatil-lax/plant-disease-classifier" target="_blank" rel="noopener">View on GitHub</a></article>
+    <article class="card reveal" style="--i:4"><h3>Stock Price Prediction Web App</h3>
+      <p>A Flask app that pulls historical prices with yfinance, trains a linear regression model, and charts predicted trends in the browser.</p>
+      <div class="chips"><span class="chip">Flask</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Chart.js</span></div>
+      <a class="plink" href="https://github.com/laxmipatil-lax/stock-price-prediction" target="_blank" rel="noopener">View on GitHub</a></article>
+    
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2 class="reveal">Education</h2>
+  <div class="edu">
+    <article class="card reveal" style="--i:1"><h3>Master of Computer Applications</h3>
+      <p class="sub">SG Balekundri Institute of Technology, VTU · Nov 2025 – Jun 2027</p>
+      <ul><li>Semester 1: 72.5%, Semester 2: 83.75%</li><li>Data Structures and Algorithms, DBMS, Full Stack Development, Software Engineering, OOP</li></ul></article>
+    <article class="card reveal" style="--i:2"><h3>Bachelor of Computer Applications</h3>
+      <p class="sub">Rani Channamma University, Belagavi · Sep 2022 – Jun 2025</p>
+      <ul><li>CGPA: 7.23</li></ul></article>
+    <article class="card certs reveal scale" style="--i:3"><h3>Certifications</h3>
+      <ul><li>AWS Training and Certification: Fundamentals of Machine Learning and Artificial Intelligence (July 2026)</li>
+      <li>Tata iQ GenAI Powered Data Analytics Job Simulation, Forage (May 2026)</li>
+      <li>Deloitte Technology Job Simulation, Forage (May 2026)</li>
+      <li>Full Stack Development Internship Certificate, Softmusk Info Pvt. Ltd. (2025)</li></ul></article>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2 class="reveal">Contact</h2>
+  <p class="reveal" style="max-width:34rem;margin:0 0 1.6rem;color:var(--muted)">I’m open to entry-level roles. Email is the fastest way to reach me.</p>
+  <div class="contact">
+    <a class="card reveal" style="--i:1" href="https://mail.google.com/mail/?view=cm&fs=1&to=laxmipatil5825@gmail.com" target="_blank" rel="noopener"><small>Email</small><b>laxmipatil5825@gmail.com</b></a>
+    <a class="card reveal" style="--i:2" href="tel:+919035205825"><small>Phone</small><b>+91 90352 05825</b></a>
+    <a class="card reveal" style="--i:3" href="https://www.linkedin.com/in/laxmi-patil-a3717a341" target="_blank" rel="noopener"><small>LinkedIn</small><b>laxmi-patil-a3717a341</b></a>
+    <a class="card reveal" style="--i:4" href="https://github.com/laxmipatil-lax" target="_blank" rel="noopener"><small>GitHub</small><b>laxmipatil-lax</b></a>
+    <div class="card reveal" style="--i:5"><small>Location</small><b>Belagavi, Karnataka</b></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr">2026</span> Laxmi Patil</div></footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%'});
+      io.unobserve(e.target);
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  var links=document.querySelectorAll('nav ul a'),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'))});
+  var so=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})}
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){if(s)so.observe(s)});
+})();
+</script>
+</body>
+</html>
